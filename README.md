@@ -24,10 +24,6 @@
 
 ---
 
-Here’s the installation section for your `README.md` file:
-
----
-
 ## Installation
 
 To install and run the Quran Reciters app, follow these steps:
