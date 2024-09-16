@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'views/splash_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: Locale('ar'),
       debugShowCheckedModeBanner: false,
       home: SplashView(),
     );

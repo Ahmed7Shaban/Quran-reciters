@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'reader_item.dart';
 
 class ReaderItemListView extends StatelessWidget {
@@ -7,17 +6,14 @@ class ReaderItemListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 365,
-      child: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: 30,
-        itemBuilder: (context, index) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
           return ReaderItem(
             index: index,
           );
         },
+        childCount: 30,
       ),
     );
   }
