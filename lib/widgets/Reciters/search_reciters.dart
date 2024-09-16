@@ -13,7 +13,8 @@ class SearchReciters extends StatelessWidget {
         width: double.infinity,
         height: 150,
         decoration: BoxDecoration(
-            color: AppColors.studio, borderRadius: BorderRadius.circular(20)),
+            color: AppColors.cocoaBrown,
+            borderRadius: BorderRadius.circular(20)),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(20.0),

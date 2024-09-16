@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/colors.dart';
+import '../widgets/Quran/body_quran.dart';
 
 class QuranView extends StatelessWidget {
   const QuranView({super.key});
@@ -30,7 +31,7 @@ class QuranView extends StatelessWidget {
             bottomRight: Radius.circular(20),
           )),
         ),
-        body: QuranView(),
+        body: BodyQuran(),
       ),
     );
   }
