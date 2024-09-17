@@ -8,7 +8,7 @@ class AppBarText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 50, top: 80),
+      padding: const EdgeInsets.only(bottom: 50, top: 50),
       child: Text(
         "تلاوات القران",
         style: GoogleFonts.cairo(
