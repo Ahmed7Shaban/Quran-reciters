@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sounsds_quran/utils/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../cubit/Setting/theme/change_theme.dart';
+import '../../utils/colors.dart';
 
 class ChooseTheme extends StatefulWidget {
   @override
@@ -11,7 +15,27 @@ class _ChooseThemeState extends State<ChooseTheme> {
   String _selectedChoice = "Light";
 
   @override
+  void initState() {
+    super.initState();
+    _loadSelectedTheme();
+  }
+
+  Future<void> _loadSelectedTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    final isDarkMode = prefs.getBool('isDarkMode') ?? false;
+
+    setState(() {
+      if (isDarkMode) {
+        _selectedChoice = 'Dark';
+      } else {
+        _selectedChoice = 'Light';
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ThemeCubit>();
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -20,7 +44,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
             "Theme Mode: $_selectedChoice",
             style: GoogleFonts.acme(
                 textStyle: TextStyle(
-              color: AppColors.revolver,
               fontWeight: FontWeight.bold,
               fontSize: 25,
             )),
@@ -33,23 +56,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
             children: [
               ChoiceChip(
                 label: Text(
-                  'System',
-                  style: GoogleFonts.acme(
-                      textStyle: TextStyle(
-                    color: AppColors.studio,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                  )),
-                ),
-                selected: _selectedChoice == 'System',
-                onSelected: (bool selected) {
-                  setState(() {
-                    _selectedChoice = selected ? 'System' : 'Light';
-                  });
-                },
-              ),
-              ChoiceChip(
-                label: Text(
                   'Dark',
                   style: GoogleFonts.acme(
                       textStyle: TextStyle(
@@ -60,6 +66,11 @@ class _ChooseThemeState extends State<ChooseTheme> {
                 ),
                 selected: _selectedChoice == 'Dark',
                 onSelected: (bool selected) {
+                  if (selected) {
+                    cubit.DarkTheme();
+                  } else {
+                    cubit.LightTheme();
+                  }
                   setState(() {
                     _selectedChoice = selected ? 'Dark' : 'Light';
                   });
@@ -77,8 +88,11 @@ class _ChooseThemeState extends State<ChooseTheme> {
                 ),
                 selected: _selectedChoice == 'Light',
                 onSelected: (bool selected) {
+                  if (selected) {
+                    cubit.LightTheme();
+                  }
                   setState(() {
-                    _selectedChoice = selected ? 'Light' : 'Light';
+                    _selectedChoice = selected ? 'Light' : _selectedChoice;
                   });
                 },
               ),

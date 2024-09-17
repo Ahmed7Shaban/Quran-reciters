@@ -8,8 +8,10 @@ class AppColors {
   static const Color donJuan = Color(0xFF634c51);
   static const Color hippieBlue = Color(0xFF6998b6);
   static const Color rouge = Color(0xFFa24379);
-  static const Color revolver = Color(0xFF271b3d);
-  static const Color cocoaBrown = Color(0xFF332222);
+  static const Color revolver = Color(0xFF271b3d); // dark
+
+  static const Color cocoaBrown = Color(0xFF332222); // dark
+  static const Color lightBeige = Color(0xFFF5E8DC); // light
   static const Color capeCod = Color(0xFF414443);
 
 // This variable is used to define the padding-right in some layouts

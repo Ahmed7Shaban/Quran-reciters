@@ -23,7 +23,6 @@ class BodySplash extends StatelessWidget {
           Center(child: LogoSplash()),
           TextSplash(),
           CustomElevatedButton(
-            padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 25.0),
             text: 'الأستماع الى القرآن الكريم',
             onPressed: () {
               print('click');
@@ -33,7 +32,8 @@ class BodySplash extends StatelessWidget {
                     type: PageTransitionType.topToBottom, child: HomeView()),
               );
             },
-          )
+          ),
+          SizedBox(height: 30),
         ],
       ),
     );

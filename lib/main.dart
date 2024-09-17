@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'cubit/Setting/theme/change_theme.dart';
 import 'views/splash_view.dart';
 
 void main() {
@@ -12,9 +14,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashView(),
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => ThemeCubit(),
+          )
+        ],
+        child: BlocBuilder<ThemeCubit, ThemeData>(
+          builder: (BuildContext context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: state,
+              home: SplashView(),
+            );
+          },
+        ));
   }
 }

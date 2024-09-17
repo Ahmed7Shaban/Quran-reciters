@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../utils/colors.dart';
 import '../../views/quran_view.dart';
@@ -84,11 +85,8 @@ class ReaderItem extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return QuranView();
-                },
-              ),
+              PageTransition(
+                  type: PageTransitionType.leftToRight, child: QuranView()),
             );
           },
           child: Padding(
@@ -98,7 +96,11 @@ class ReaderItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
-                    onPressed: () {}, icon: FaIcon(FontAwesomeIcons.heart)),
+                    onPressed: () {},
+                    icon: FaIcon(
+                      FontAwesomeIcons.heart,
+                      color: Colors.red,
+                    )),
                 SizedBox(
                   width: 10,
                 ),
@@ -107,7 +109,7 @@ class ReaderItem extends StatelessWidget {
                   "مشاري بن راشد العفاسي",
                   style: GoogleFonts.amiri(
                       textStyle: TextStyle(
-                          color: AppColors.cocoaBrown,
+                          //           color: AppColors.cocoaBrown,
                           fontSize: 24,
                           fontWeight: FontWeight.bold)),
                 ),

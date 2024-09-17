@@ -35,7 +35,10 @@ class SearchReciters extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   borderSide: BorderSide(color: Colors.white, width: 2),
                 ),
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
               ),
               style: TextStyle(color: Colors.white, fontSize: 18),
               onChanged: (query) {},

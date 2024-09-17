@@ -20,7 +20,6 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
             "Language: $_selectedChoice",
             style: GoogleFonts.acme(
                 textStyle: TextStyle(
-              color: AppColors.revolver,
               fontWeight: FontWeight.bold,
               fontSize: 25,
             )),

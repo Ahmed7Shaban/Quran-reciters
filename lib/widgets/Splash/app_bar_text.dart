@@ -13,9 +13,9 @@ class AppBarText extends StatelessWidget {
         "تلاوات القران",
         style: GoogleFonts.cairo(
             textStyle: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 35,
-                color: AppColors.cocoaBrown)),
+          fontWeight: FontWeight.w900,
+          fontSize: 35,
+        )),
       ),
     );
   }
