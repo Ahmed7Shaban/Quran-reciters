@@ -47,6 +47,7 @@ dependencies:
   bloc: ^8.1.4
   shared_preferences: ^2.3.2
   flutter_bloc: ^8.1.6
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -76,7 +77,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/image/
-  #   - images/a_dot_ham.jpeg
+    - assets/sounds/splash_sound.mp3
+  # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

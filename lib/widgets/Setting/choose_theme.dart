@@ -21,8 +21,8 @@ class _ChooseThemeState extends State<ChooseTheme> {
   }
 
   Future<void> _loadSelectedTheme() async {
-    final prefs = await SharedPreferences.getInstance();
-    final isDarkMode = prefs.getBool('isDarkMode') ?? false;
+  final prefs = await SharedPreferences.getInstance();
+  final isDarkMode = prefs.getBool('isDarkMode') ?? false;
 
     setState(() {
       if (isDarkMode) {
